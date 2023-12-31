@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11a
+  <title>11b
   </title>
 </head>
 <body>
@@ -13,8 +13,19 @@
     nums.splice(2, 1);
 
     nums.push(99);
-    
+
     console.log(nums);
+
+    getLastValue([1, 20, 22, 24, 5]);
+    getLastValue(['hi', 'hello', 'good']);
+
+    function getLastValue(array){
+
+      const lastIndex = array.length - 1;
+    
+      console.log(array[lastIndex]);
+
+    }
   </script>
 </body>
 </html>
