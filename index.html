@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11i
+  <title>11j
   </title>
 </head>
 <body>
@@ -64,7 +64,7 @@
       j--;
     }*/
 
-    console.log(addNum([1,2,3] , 2));
+    /*console.log(addNum([1,2,3] , 2));
     console.log(addNum([1,2,3] , 3));
     console.log(addNum([-2,-1,0,99] , 2));
 
@@ -73,8 +73,17 @@
       array[i] += num;
     }
     return array;
-   }
+   }*/
 
+   console.log(addArray([1,1,2], [1,1,3]));
+   console.log(addArray([1,2,3], [4,5,6]));
+
+   function addArray(array1, array2){
+    for (let i = 0; i<array1.length; i++){
+      array1[i] += array2[i];
+    }
+    return array1;
+   }
   </script>
 </body>
 </html>
