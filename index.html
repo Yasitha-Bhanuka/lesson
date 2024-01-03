@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11n
+  <title>11o
   </title>
 </head>
 <body>
@@ -208,6 +208,23 @@
     console.log(i);
     i++;
    }*/
+
+   console.log(myFun(['hello','world','search','good']));
+   console.log(myFun(['not', 'found']));
+
+   function myFun(myArray){
+     let n = '';
+  
+     for(let i = 0; i<myArray.length; i++){
+      if (myArray[i] === 'search'){
+          n = i;
+          return i;
+        } 
+      }
+     if (!n){
+      return -1;
+     }
+   }
 
   </script>
 </body>
