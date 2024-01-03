@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11p
+  <title>11q
   </title>
 </head>
 <body>
@@ -226,7 +226,7 @@
      }
    }*/
    
-   let n = '';
+   /*let n = '';
 
    myFun(['hello','world','search','good', 'search']);
 
@@ -242,6 +242,24 @@
      if (!n){
       return -1;
      }
+    }*/
+
+    console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+    console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
+
+    function findIndex(array, word){
+      let index;
+      
+      for(let i = 0; i<array.length; i++){
+        if (word === array[i]){
+          index = i;
+          return index;
+        }
+      }
+
+      if (!index){
+        return -1;
+      }
     }
 
   </script>
