@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11s
+  <title>11t
   </title>
 </head>
 <body>
@@ -276,7 +276,7 @@
       return foods;
     }*/
 
-    console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+    /*console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
 
     function removeEgg(foods){
       let count = 0;
@@ -296,7 +296,30 @@
       }
       return foods;
 
+    }*/
+
+    console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+    function removeEgg(foods){
+      let count = 0;
+
+      for(let i = foods.length; i>=0; i--){
+        const item = foods[i];
+
+        if (count === 2){
+          return foods;
+        }
+
+        if (item === 'egg'){
+          foods.splice(i, 1);
+          count++;
+          i++;
+        }
+      }
+      return foods;
+
     }
+
 
   </script>
 </body>
