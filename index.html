@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11q
+  <title>11r
   </title>
 </head>
 <body>
@@ -244,7 +244,7 @@
      }
     }*/
 
-    console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+    /*console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
     console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
 
     function findIndex(array, word){
@@ -260,7 +260,22 @@
       if (!index){
         return -1;
       }
+    }*/
+
+    console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+    function removeEgg(foods){
+      
+      for(let i = 0; i<foods.length; i++){
+        const item = foods[i];
+        if (item === 'egg'){
+          foods.splice(i, 1);
+          i--;
+        }
+      }
+      return foods;
     }
+
 
   </script>
 </body>
