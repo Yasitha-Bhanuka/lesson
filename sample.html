@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoList</title>
+  <style>
+    body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+  color: white;
+  cursor: pointer;
+}
+
+.add-btn{
+  padding: 6px 20px;
+  background-color: rgb(20, 238, 20);
+  border: none;
+}
+
+.delete-btn{
+  padding: 6px 20px;
+  background-color: rgb(240, 46, 29);
+  border: none;
+}
+
+.js-input, .js-date-input{
+  padding: 4px 5px;
+  font-size: 15px;
+}
+
+.todo-grid, .todo-input-grid{
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 8px;
+  row-gap: 8px;
+  align-items: center;
+}
+
+.todo-input-grid{
+  margin-bottom: 8px;
+  align-items: stretch;
+}
+  </style>
+</head>
+<body>
+  <div class="todo-input-grid">
+  
+    <input type="text" placeholder="Todo name" class="js-input " onkeydown="btnFunction(event);">
+  
+    <input type="date" class="js-date-input">
+    
+    <button class="add-btn"  onclick="
+    addToArray();
+    ">Add</button>
+  
+  </div>
+  
+  <div class="js-list todo-grid"></div>
+  
+  <script>
+    const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
+  name :'',
+  dueDate: ''
+  }];  
+    
+    renderDetails();
+    
+    function btnFunction(event){
+      
+      if (event.key === 'Enter'){
+        addToArray();
+      }
+      
+    }
+    
+    function addToArray(){
+      
+      const inputElement = document.querySelector('.js-input');
+      
+      const dateInputElement = document.querySelector('.js-date-input');
+      
+      /*const namevalue = inputElement.value;
+      const datevalue = dateInputElement.value; // in this method without using shorthand property
+      myarray.push({
+        name: namevalue,
+        dueDate: datevalue
+      });*/
+
+      // using shortHand property
+
+      const dueDate = dateInputElement.value;
+      const name = inputElement.value;
+      
+      if(name && dueDate){
+        myarray.push({name, dueDate});
+        
+        renderDetails();
+  
+        saveToStorage();
+        
+        inputElement.value = '';
+  
+        dateInputElement.value = '';
+      } else {
+        alert('Please enter both a todo name and due date');
+      }
+      
+    }
+    
+    function renderDetails(){
+      
+      let ListElement = '';
+        
+      const displayElement = document.querySelector('.js-list');
+      
+      for (let i = 0; i<myarray.length; i++){
+
+        
+        const todoObject = myarray[i];
+
+        // const name = todoObject.name;
+        // const dueDate = todoObject.dueDate;
+
+        const { name, dueDate } = todoObject;
+        
+        const todoraw = `
+          <div>${name}</div>
+          <div>${dueDate}</div>
+          <button class="delete-btn"
+          onclick="
+            myarray.splice(${i}, 1);
+            
+            renderDetails();
+
+            saveToStorage();
+          "
+          >Delete</button>
+          `;
+          
+        ListElement += todoraw;
+        
+      }
+
+    displayElement.innerHTML = ListElement;
+
+   }
+
+   function saveToStorage(){
+    localStorage.setItem('myarray', JSON.stringify(myarray));
+   }
+  </script>
+  
+</body>
+</html>

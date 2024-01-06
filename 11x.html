@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoList</title>
+  <link rel="stylesheet" href="11x.css">
+</head>
+<body>
+  <div class="todo-input-grid">
+  
+    <input type="text" placeholder="Todo name" class="js-input " onkeydown="btnFunction(event);">
+  
+    <input type="date" class="js-date-input">
+    
+    <button class="add-btn"  onclick="
+    addToArray();
+    ">Add</button>
+  
+  </div>
+  
+  <div class="js-list todo-grid"></div>
+  
+  <script src="11x.js"></script>
+  
+</body>
+</html>
