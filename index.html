@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11u
+  <title>11w
   </title>
 </head>
 <body>
@@ -345,7 +345,7 @@
     }
     console.log(foods);*/
 
-    for (let i = 1; i<=20; i++){
+    /*for (let i = 1; i<=20; i++){
       if (i % 3 === 0 && i % 5 === 0){
         console.log('fizzbuzz');
         continue;
@@ -359,7 +359,48 @@
         continue;
       }
       console.log(i);
+    }*/
+
+    console.log(unique(['green', 'red', 'blue', 'red']));
+    console.log(unique(['red', 'green', 'green', 'red']));
+
+    function findIndex(array, word){
+      
+      for(let i = 0; i<array.length; i++){
+
+        if (word === array[i]){
+
+          return i;
+
+        }
+
+      }
+
+      return -1;
+
     }
+
+    function unique(array){
+
+      const result = [];
+
+      for (let i = 0; i<array.length; i++){
+
+        const word = array[i];
+
+        if (findIndex(result, word) === -1){
+
+          result.push(word);
+
+        }
+
+      }
+
+      return result;
+
+    }
+
+
 
   </script>
 </body>
