@@ -3,27 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12e</title>
+  <title>App</title>
 </head>
 <body>
 
   <!-- <button class="start-btn" onclick="updateBtn();">Start</button> -->
 
-  <button class="add-to-cart-btn" onclick="updateBtn();">Add to cart</button>
+  <button class="add-to-cart-btn" onclick="displayMessage();">Add to cart</button>
+
   <div class="text-msg"></div>
 
   <script>
-    function updateBtn(){
+
+    setInterval(function(){
+      if (document.title === 'App'){
+        document.title = 'New message';
+      } else {
+        document.title = 'App';
+      }
+    }, 3000);
+    
+
+    /*let timeoutID;
+
+    function displayMessage(){
+
+      const msg = document.querySelector('.text-msg');
+      
+      msg.innerHTML = 'Added';
+      
+      clearTimeout(timeoutID);
+      
+      timeoutID = setTimeout(function (){
+        msg.innerHTML = '';
+      }, 3000);
+      
+      console.log(timeoutID);
+    }*/
+
+    /*function updateBtn(){
       const textBox = document.querySelector('.text-msg');
 
       console.log('clicked the add to cart button');
 
       textBox.innerHTML = 'Added';
-      
+
       setTimeout(function(){
         textBox.innerHTML = '';
       }, 2000);
-    }
+    }*/
+
+    /*function updateBtn(){
+      const textBox = document.querySelector('.text-msg');
+
+      console.log('clicked the add to cart button');
+
+      textBox.innerHTML = 'Added';
+
+      setTimeout(function(){
+        textBox.innerHTML = '';
+      }, 2000);
+    }*/
 
     /*function updateBtn(){
       const btn = document.querySelector('.start-btn');
