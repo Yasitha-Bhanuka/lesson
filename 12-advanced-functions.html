@@ -6,7 +6,21 @@
   <title>Document</title>
 </head>
 <body>
+  <button class="js-click-btn">Click</button>
   <script>
+    const btnElement = document.querySelector('.js-click-btn');
+
+    const eventListner = () => {
+      console.log('clicked');
+    };
+
+    btnElement.addEventListener('click', eventListner); 
+
+    btnElement.removeEventListener('click', eventListner);
+
+    btnElement.addEventListener('click',eventListner); 
+
+
     // hoisting working without ordering.in this type function declarations,
     /*function greeting(){
       console.log('hello');
@@ -78,6 +92,51 @@
       console.log(value , index);
 
     });*/
+
+    /*const regularFunction = function(param ,  param2){
+      console.log('hello'); 
+      return 2;
+    }
+    const arrowFunction = (param , param2) => {
+      console.log('hello');
+      return 3;
+    };
+
+    arrowFunction(); */
+
+    /*const oneParam = param => {
+      console.log(param + 1);
+    } 
+
+    oneParam(2);  
+
+    const oneline = () => 3 + 2;
+
+    console.log(oneline());*/
+
+    /*[
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ].forEach((value, index) => {
+
+      if (value === 'wash dishes'){
+        return;
+      }
+
+      console.log(value , index);
+
+    });*/
+
+   /*const object2 = {
+      method: () => {
+        console.log('hello');
+      },
+      method2(){
+        console.log('hello another'); 
+      }
+    };
+    console.log(typeof object2.method());*/
  </script>
 </body>
 </html>

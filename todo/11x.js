@@ -1,6 +1,6 @@
 const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
-  name :'',
-  dueDate: ''
+  name,
+  dueDate
   }];  
     
     renderDetails();

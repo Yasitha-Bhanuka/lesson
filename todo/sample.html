@@ -77,6 +77,8 @@ button{
     }
     
     function addToArray(){
+
+      console.log('addToArray');  
       
       const inputElement = document.querySelector('.js-input');
       
@@ -114,7 +116,7 @@ button{
       
       let ListElement = '';
 
-      myarray.forEach(function(todoObject, index){
+      myarray.forEach((todoObject, index) => {
   
         const { name, dueDate } = todoObject;
         
