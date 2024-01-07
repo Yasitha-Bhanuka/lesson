@@ -13,12 +13,49 @@
 
   <!-- <div class="text-msg"></div> -->
 
-  <button onclick="add();">Add</button>
+  <button onclick="message++; displayNotification();">Add</button>
 
-  <button onclick="remove();">Remove</button>
+  <button onclick="if(message >= 0){
+    message--;
+    displayNotification();
+  }; 
+  if(message === 0){
+    stopNotification();
+    }">Remove</button>
 
   <script>
-    let message = 2;
+    let message = 0;
+
+    let intervalID;
+
+    let isDisplayingNotification; // this variable used for control displayNotification() function
+
+    displayNotification();
+
+    function displayNotification(){
+      console.log(message);
+
+      if (isDisplayingNotification){
+        return;
+      }
+
+      isDisplayingNotification = true;
+
+      intervalID = setInterval(function(){
+        if (document.title === 'App'){
+          document.title = `${message} New messages`;
+        } else {
+          document.title = 'App';
+        }
+      }, 1000);
+    }
+
+    function stopNotification(){
+      clearInterval(intervalID);
+      isDisplayingNotification = false; 
+      document.title = 'App';
+    }
+    /*let message = 2;
 
     function add(){
       message++;
@@ -37,7 +74,7 @@
       setInterval(function(){
         document.title = `${message} New messages`;
       }, 1000);
-    }
+    }*/
 
 
     /*setInterval(function(){
