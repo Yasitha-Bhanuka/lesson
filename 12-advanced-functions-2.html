@@ -3,16 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12a</title>
+  <title>12c</title>
 </head>
 <body>
+
+  <button class="start-btn" onclick="updateBtn();">Start</button>
+
   <script>
-    const add = function(){
+
+    function updateBtn(){
+      const btn = document.querySelector('.start-btn');
+
+      console.log('clicked the button');
+
+      setTimeout(function(){
+        btn.innerHTML = 'Finished!';
+      }, 2000);
+    }
+    
+
+
+    /*const add = function(){
       console.log(2 + 3);
     }
 
     add();
-    add();
+    add();*/
+   
+    /*const add = function(){
+      console.log(2 + 3);
+    }
+
+    function runTwice(add){
+      add();
+      add();
+    }
+
+    runTwice(function (){
+      console.log('12b');
+    });
+
+    runTwice(add);*/
   </script>
 </body>
 </html>
