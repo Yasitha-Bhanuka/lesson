@@ -9,19 +9,44 @@
 
   <!-- <button class="start-btn" onclick="updateBtn();">Start</button> -->
 
-  <button class="add-to-cart-btn" onclick="displayMessage();">Add to cart</button>
+  <!-- <button class="add-to-cart-btn" onclick="displayMessage();">Add to cart</button> -->
 
-  <div class="text-msg"></div>
+  <!-- <div class="text-msg"></div> -->
+
+  <button onclick="add();">Add</button>
+
+  <button onclick="remove();">Remove</button>
 
   <script>
+    let message = 2;
 
-    setInterval(function(){
+    function add(){
+      message++;
+      console.log(message);
+
+      setInterval(function(){
+        
+        document.title = `${message} New messages`;
+      }, 1000);
+    }
+
+    function remove(){
+      message--;
+      console.log(message);
+
+      setInterval(function(){
+        document.title = `${message} New messages`;
+      }, 1000);
+    }
+
+
+    /*setInterval(function(){
       if (document.title === 'App'){
         document.title = 'New message';
       } else {
         document.title = 'App';
       }
-    }, 3000);
+    }, 3000);*/
     
 
     /*let timeoutID;
