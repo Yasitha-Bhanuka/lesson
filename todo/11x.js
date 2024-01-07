@@ -4,6 +4,12 @@ const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
   }];  
     
     renderDetails();
+
+    document.querySelector('.delete-btn').addEventListener('click', function(){
+      myarray.splice(0, 1);
+      saveToStorage();
+      renderDetails();
+    });
     
     function btnFunction(event){
       
@@ -30,10 +36,17 @@ const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
 
       const dueDate = dateInputElement.value;
       const name = inputElement.value;
-      myarray.push({
-        name,
-        dueDate
-      });
+      if (name && dueDate){
+        myarray.push({
+          name,
+          dueDate
+        });
+
+      } else{
+
+        alert('Please enter the value');
+
+      }
       
       renderDetails();
 
@@ -50,14 +63,8 @@ const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
       let ListElement = '';
         
       const displayElement = document.querySelector('.js-list');
-      
-      for (let i = 0; i<myarray.length; i++){
 
-        
-        const todoObject = myarray[i];
-
-        // const name = todoObject.name;
-        // const dueDate = todoObject.dueDate;
+      myarray.forEach(function(todoObject, index){
 
         const { name, dueDate } = todoObject;
         
@@ -65,22 +72,15 @@ const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
           <div>${name}</div>
           <div>${dueDate}</div>
           <button class="delete-btn"
-          onclick="
-            myarray.splice(${i}, 1);
-            
-            renderDetails();
-
-            saveToStorage();
-          "
-          >Delete</button>
+    
+>Delete</button>
           `;
           
         ListElement += todoraw;
-        
-      }
 
-    displayElement.innerHTML = ListElement;
+      });
 
+      displayElement.innerHTML = ListElement;
    }
 
    function saveToStorage(){
