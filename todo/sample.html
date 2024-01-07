@@ -62,8 +62,8 @@ button{
   
   <script>
     const myarray = JSON.parse(localStorage.getItem('myarray')) || [{
-  name :'',
-  dueDate: ''
+  name,
+  dueDate
   }];  
     
     renderDetails();
@@ -113,17 +113,9 @@ button{
     function renderDetails(){
       
       let ListElement = '';
-        
-      const displayElement = document.querySelector('.js-list');
-      
-      for (let i = 0; i<myarray.length; i++){
 
-        
-        const todoObject = myarray[i];
-
-        // const name = todoObject.name;
-        // const dueDate = todoObject.dueDate;
-
+      myarray.forEach(function(todoObject, index){
+  
         const { name, dueDate } = todoObject;
         
         const todoraw = `
@@ -131,10 +123,10 @@ button{
           <div>${dueDate}</div>
           <button class="delete-btn"
           onclick="
-            myarray.splice(${i}, 1);
+            myarray.splice(${index}, 1);
             
             renderDetails();
-
+  
             saveToStorage();
           "
           >Delete</button>
@@ -142,8 +134,10 @@ button{
           
         ListElement += todoraw;
         
-      }
-
+      });
+        
+      const displayElement = document.querySelector('.js-list');
+      
     displayElement.innerHTML = ListElement;
 
    }
